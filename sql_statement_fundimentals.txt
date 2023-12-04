@@ -1,0 +1,232 @@
+-- SELECT * FROM film;
+-- SELECT first_name,last_name FROM actor;
+-- select first_name,last_name from actor;
+-- select * from customer;
+-- select first_name,last_name,email from customer;
+-- select distinct(rental_rate)  from film; -- returns unique information. if many only returns one of that value
+-- select distinct(rating) from film;
+-- select * from film;
+-- select count(title) from film;
+-- select count(*) from film;
+-- select count(distinct(first_name)) from customer;
+-- select count(*) from customer;
+-- select * from payment;
+-- select count(*) from payment;
+-- select amount from payment;
+-- select count(distinct(amount)) from payment;
+
+--------------------------------------
+--				Where			 	--
+--------------------------------------
+-------------------------------------
+-- select first_name from customer
+-- where first_name = 'David';
+-------------------------------------
+-- select * from customer;
+-- select * from customer
+-- where first_name = 'Jared';
+
+-- select * from film;
+-- select * from film 
+-- where rental_rate > 4;
+
+-- select * from film 
+-- where rental_rate > 4 and replacement_cost >= 19.99;
+
+-- select * from film 
+-- where rental_rate > 4 and replacement_cost >= 19.99
+-- and rating='R';
+
+-- select count(*) from film 
+-- where rental_rate > 4 and replacement_cost >= 19.99
+-- and rating='R'
+
+-- select count(*) from film 
+-- where rating = 'R' or rating = 'PG-13';
+
+-- select count(*) from film 
+-- where rating != 'R';
+
+-- select * from film 
+-- where rating != 'R';
+
+-----------------------------------------------------
+-- challange --
+-----------------------------------------------------
+-- challange 1
+-- select email from customer
+-- where first_name = 'Nancy' and last_name = 'Thomas';
+
+-- challange 2
+-- select * from film
+-- select description from film
+-- where title = 'Outlaw Hanky';
+
+-- challange 3
+-- select * from customer;
+-- select * from address;
+-- select phone from address
+-- where address = '259 Ipoh Drive';
+
+------------------------------------------
+--				order by		 		--
+------------------------------------------
+
+-- select first_name,last_name from customer
+-- order by last_name desc;
+
+-- select * from customer;
+
+---------------------------
+---- order by asc/desc ----
+---------------------------
+-- select store_id,first_name,last_name from customer
+-- order by store_id asc,first_name desc;
+
+------------------------------------------
+--				Limit			 		--
+------------------------------------------
+
+-- select * from payment;
+
+-- select * from payment
+-- order by payment_date desc
+-- limit 5; -- limits how many rows are returnd
+
+-- select * from payment
+-- where amount != 0.00
+-- order by payment_date desc
+-- limit 5; -- limits how many rows are returnd
+
+------------------------------------------
+--			order by challange		 	--
+------------------------------------------
+
+-- select customer_id, payment_date from payment
+-- order by payment_date asc
+-- limit 10
+
+-- select * from film
+-- limit 1;
+
+
+-- count could be used in this one instead  --
+-- select title,length from film
+-- where length <= 50
+-- order by length asc
+
+
+------------------------------------------
+--				between				 	--
+------------------------------------------
+
+-- select * from payment
+-- limit 2;
+
+-- select * from payment
+-- where amount between 8 and 9;
+
+-- select * from payment
+-- where amount not between 8 and 9;
+
+-- select * from payment
+-- where payment_date between '2007-02-01' and '2007-02-15';
+
+------------------------------------------
+--					in				 	--
+------------------------------------------
+
+-- select first_name from customer
+-- where first_name in ('David','Thomas','Sam','Rachel')
+
+-- select count(*) from payment
+-- where amount not in (0.99,1.98,1.99)
+
+------------------------------------------
+--				like & ilike			--
+------------------------------------------
+
+-- select first_name from customer
+-- where first_name like 'De%'
+
+-- select first_name from customer
+-- where first_name like '_e%'
+-- limit 15
+-- 
+
+-- like case sensitive
+-- select * from customer
+-- where first_name like 'J%' and last_name like 'S%';
+
+-- ilike not case sensative
+-- select * from customer
+-- where first_name like 'j%' and last_name ilike 's%';
+
+-- select * from customer
+-- where first_name like 'A%' and last_name not like 'B%'
+-- order by last_name;
+
+
+------------------------------------------
+--			General Challange 1			--
+------------------------------------------
+-- 1. how many payments greater than $500
+
+-- select * from payment;
+
+-- select count(amount) from payment
+-- where amount > 5.00
+-- answer 3618 --
+
+------	------
+
+-- 2. How many actors have a first name that starts with the letter p
+
+-- select * from actor
+-- limit 1;
+
+-- select count(*) from actor
+-- where first_name like 'P%';
+
+-- answer 5
+
+------	------
+
+-- 3. How many unique districs are our customers from?
+
+-- select * from customer
+-- limit 1;
+
+-- select * from address
+-- limit 1;
+
+-- select count(distinct(district)) from address;
+
+-- answer 378
+
+------	------
+
+-- 4. Retrive the list of names for those distint distrtricts fromthe previouse question
+
+-- select distinct(district) from address;
+
+------	------
+
+-- 5. How many films have a rating of R and replacment cost between $5 and $15?
+-- select * from film limit 1
+-- select count(*) from film 
+-- where rating = 'R' 
+-- and replacement_cost between 5 and 15
+
+-- answer 52
+
+------	------
+
+-- 6. How many films have the Word Truman in there Title
+
+-- select count(*) from film
+-- where title like '%Truman%';
+
+-- answer 5
+
+------	------
