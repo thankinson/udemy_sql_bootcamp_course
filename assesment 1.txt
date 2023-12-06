@@ -1,0 +1,44 @@
+-- assesment 1
+
+-- 1. Return the customer IDs of customes who have spent at least $110 with staff member
+--    who has ID of2.
+
+-- select customer_id,sum(amount),staff_id from payment
+-- group by customer_id,staff_id
+-- having staff_id = 2 and sum(amount) >= 110
+-- order by customer_id
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+
+-- 2. How many films begin with the letter J
+
+-- select count(*) from film
+-- where title like 'J%';
+
+-- below code used to verify
+-- select * from film
+-- where title like 'J%';
+
+------------------------------------------------
+------------------------------------------------
+------------------------------------------------
+
+-- 3. What customer has the highest customer ID number whose 
+--    name starts with an 'E' and has an address ID lower than 500?
+
+-- select * from address
+-- select * from customer
+
+-- select * from customer
+-- where first_name like 'E%' and address_id < 500
+-- order by customer_id desc
+-- limit 1
+
+-- 
+-- select first_name,last_name from customer
+-- where first_name like 'E%' and address_id < 500
+-- order by customer_id desc
+-- limit 1
