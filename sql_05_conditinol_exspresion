@@ -1,0 +1,191 @@
+-----------------------------
+-- Conditinol exspressions --
+-----------------------------
+----------
+-- case --
+----------
+
+-- select * from customer
+
+-- select customer_id,
+-- 	case
+-- 		when (customer_id <= 100) then 'Premium'
+-- 		when (customer_id between 100 and 200) then 'Plus'
+-- 		else 'Normal'
+-- 	end as customer_class
+
+-- from customer
+
+
+-- select customer_id,
+-- 	case customer_id 
+-- 		when 2 then 'Winner'
+-- 		when 5 then 'Second place'
+-- 		else 'Normal'
+-- 	end as raffle_results
+
+-- from customer
+
+-- select rental_rate, 
+-- 	case rental_rate
+-- 		when 0.99 then 1
+-- 		else 0
+-- 	end
+
+-- from film
+
+
+-- select 
+-- 	sum(
+-- 		case rental_rate
+-- 			when 0.99 then 1
+-- 			else 0
+-- 		end
+-- 		) as bargins,
+-- 	sum(
+-- 		case rental_rate
+-- 			when 2.99 then 1
+-- 			else 0
+-- 		end
+-- 	) as regular,
+-- 	sum(
+-- 		case rental_rate
+-- 			when 4.99 then 1
+-- 			else 0
+-- 		end
+-- 	) as premium
+
+-- from film
+
+
+---------------------------
+-- Case - Challange task --
+---------------------------
+
+-- select * from film
+
+-- select 
+-- 	sum(
+-- 		case rating
+-- 			when 'R' then 1
+-- 			else 0
+-- 		end
+-- 	) as r,
+-- 	sum(
+-- 		case rating
+-- 			when 'PG' then 1
+-- 			else 0
+-- 		end
+-- 	) as pg,
+-- 	sum(
+-- 		case rating
+-- 			when 'PG-13' then 1
+-- 			else 0
+-- 		end
+-- 	) as pg13
+-- from film
+	
+--------------
+-- Coalesce --
+--------------
+
+
+-- use if you encounter a table with null values
+
+
+----------
+-- cast --
+----------
+
+-- select cast('5' as integer) as new_result
+
+
+-- postgres only
+
+-- select '5'::integer as new_num
+
+-- select * from rental
+
+-- select char_length(cast(inventory_id as varchar)) from rental
+
+------------
+-- NULLIF --
+------------
+--
+-- create new db to run this
+--
+--
+-- create table depts(
+-- 	first_name varchar(50),
+-- 	department varchar(50)
+-- )
+
+-- insert into depts(
+-- 	first_name,
+-- 	department
+-- )
+-- values
+-- ('Vinton', 'A'),
+-- ('Lauren', 'A'),
+-- ('Claire', 'B')
+
+
+-- select * from depts
+
+-- select (
+-- 	sum(case when department = 'A' then 1 else 0 end )/
+-- 	sum(case when department = 'B' then 1 else 0 end )
+	
+-- ) as department_ratio
+-- from depts
+
+-- delete from depts
+-- where department = 'B'
+
+-- select * from depts
+
+-- select * from depts
+
+
+-- select (
+-- 	sum(case when department = 'A' then 1 else 0 end )/
+-- 	nullif(sum(case when department = 'B' then 1 else 0 end ),0)
+-- ) as department_ratio
+-- from depts
+
+
+
+
+-----------
+-- Views --
+-----------
+
+-- this creates a view
+
+-- create view customer_info as 
+-- select first_name,last_name,address from customer
+-- inner join address
+-- on customer.address_id = address.address_id
+
+
+-- select * from customer_info
+
+
+-- this is how you update or change a view
+
+-- create or replace view customer_info as 
+-- select first_name,last_name,address,district from customer
+-- inner join address
+-- on customer.address_id = address.address_id
+
+-- select * from customer_info
+
+-- rename view
+-- alter view customer_info rename to c_info 
+
+-- to delete view 
+-- drop view customer_info
+
+-- select * from c_info
+
+-- drop view c_info
