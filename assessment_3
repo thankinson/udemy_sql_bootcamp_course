@@ -1,0 +1,53 @@
+-- create table students (
+-- 	student_id serial primary key,
+-- 	first_name varchar(50) not null,
+-- 	last_name varchar(50) not null,
+-- 	homeroom_number integer not null,
+-- 	phone_number bigint not null unique,
+-- 	email varchar(100) unique,
+-- 	graduation_year varchar(4) not null
+-- );
+
+-- create table teachers (
+-- 	teacher_id serial primary key,
+-- 	first_name varchar(50) not null,
+-- 	last_name varchar(50) not null,
+-- 	homeroom_number integer not null,
+-- 	department varchar not null,
+-- 	phone_number bigint not null unique,
+-- 	email varchar(100) not null unique
+-- );
+
+-- insert into students(
+-- 	first_name,
+-- 	last_name,
+-- 	homeroom_number,
+-- 	phone_number,
+-- 	graduation_year
+-- )
+-- values (
+-- 	'Mark',
+-- 	'Watney',
+-- 	5,
+-- 	7775551234,
+-- 	2035
+-- );
+
+-- insert into teachers(
+-- 	first_name,
+-- 	last_name,
+-- 	homeroom_number,
+-- 	department,
+-- 	email,
+-- 	phone_number
+-- )
+-- values (
+-- 	'Jonas',
+-- 	'Salk',
+-- 	5,
+-- 	'Biology',
+-- 	'jsalk@school.org',
+-- 	7775554321
+-- );
+
+-- select * from teachers
